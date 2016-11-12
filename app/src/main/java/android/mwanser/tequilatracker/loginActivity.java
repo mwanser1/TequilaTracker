@@ -36,11 +36,14 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     //Set intent to new intent
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    //intent.putExtra("")
                     startActivity(intent);
                 }
             }
         });
     }
+    //Questions: how do i keep track of who is logged in? how do i actually pass the app the ID of the user ?
+    //HOw can i keep user logged in to his phone?
     /**
      *
      * @param u - user name user submitted
@@ -56,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         //go to databaase and check username to password
         //if both match return id
-
+        //MainActivity.ID=1;
         return 1;
     }
 }
