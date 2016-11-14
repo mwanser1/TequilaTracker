@@ -47,17 +47,32 @@
                 android:id="@+id/thePassword"
                 android:focusableInTouchMode="true"
                 />
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="Submit"
-                android:id="@+id/submitLogin"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                >
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="Submit"
+                    android:id="@+id/submitLogin"/>
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="Create"
+                    android:id="@+id/newAccount"/>
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:textColor="@color/colorRed"
                 android:text=""
                 android:id="@+id/loginError"/>
+
         </LinearLayout>
 
     </LinearLayout>
