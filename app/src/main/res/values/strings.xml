@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">TequilaTracker</string>
-    <string name="title_activity_main2">Welcome Back!</string>
+    <string name="title_activity_main2">Tequila Tracker Home</string>
+    <string name="title_activity_location_search">Location Finder</string>
+    <string name="title_activity_login">Login to Tequila Tracker</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">My reviews: %1$d</string>
+    <string name="title_activity_add_review">Add a Review</string>
+    <string name="title_activity_search_for_items">Search for Items</string>
+    <string name="title_activity_create_user">Account Creation</string>
 </resources>

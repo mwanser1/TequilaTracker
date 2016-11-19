@@ -1,6 +1,5 @@
 package android.mwanser.tequilatracker;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,9 +19,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-public class Main2Activity extends AppCompatActivity {
+public class AddReview extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -38,16 +35,12 @@ public class Main2Activity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private ArrayList<String> tequilas= new ArrayList<String>();
-    private ArrayList<String> bars = new ArrayList<>();
-    private int userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        tequilas.add("Tequila 1"); tequilas.add("Tequila 2"); tequilas.add("Tequila 3");
-        bars.add("bar 1");bars.add("bar 2");bars.add("bar 3");
+        setContentView(R.layout.activity_add_review);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -61,35 +54,14 @@ public class Main2Activity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.addReview);
-        add.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddReview.class);
-                //intent.putExtra("");
-                startActivity(intent);
-
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
-        FloatingActionButton addTequila = (FloatingActionButton) findViewById(R.id.searchItems);
-        addTequila.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SearchForItems.class);
-                //intent.putExtra("");
-                startActivity(intent);
-            }
-        });
-        FloatingActionButton find = (FloatingActionButton) findViewById(R.id.locationFind);
-        find.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LocationSearch.class);
-                //intent.putExtra("");
-                startActivity(intent);
-            }
-        });
-
 
     }
 
@@ -97,7 +69,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main2, menu);
+        getMenuInflater().inflate(R.menu.menu_add_review, menu);
         return true;
     }
 
@@ -144,7 +116,7 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_add_review, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
@@ -170,18 +142,19 @@ public class Main2Activity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 2 total pages.
-            return 2;
+            // Show 3 total pages.
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "My Tequila";
+                    return "SECTION 1";
                 case 1:
-                    return "My Bar";
-
+                    return "SECTION 2";
+                case 2:
+                    return "SECTION 3";
             }
             return null;
         }

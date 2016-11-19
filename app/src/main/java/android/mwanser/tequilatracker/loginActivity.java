@@ -1,6 +1,7 @@
 package android.mwanser.tequilatracker;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //Button and text stuff finder
         final Button buttonLogin=(Button)findViewById(R.id.submitLogin);
+        final Button buttonCreate=(Button)findViewById(R.id.newAccount);
         final EditText textUserName = (EditText)findViewById(R.id.userEmail);
         final EditText textPassword = (EditText)findViewById(R.id.thePassword);
         final TextView textError = (TextView)findViewById(R.id.loginError);
@@ -37,9 +39,21 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     //Set intent to new intent
                     Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
-                    //intent.putExtra("")
+                    //intent.putExtra("");
                     startActivity(intent);
                 }
+            }
+        });
+        assert buttonCreate != null; //What is this
+        buttonCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("LoginActivity", "Create Login Clicked");
+                //Set intent to new intent
+                Intent intent = new Intent(getApplicationContext(), CreateUser.class);
+                //intent.putExtra("");
+                startActivity(intent);
+
             }
         });
     }

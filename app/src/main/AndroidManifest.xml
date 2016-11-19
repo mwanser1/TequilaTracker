@@ -19,6 +19,19 @@
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddReview"
+            android:label="@string/title_activity_add_review"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LocationSearch" />
+        <activity
+            android:name=".SearchForItems"
+            android:label="@string/title_activity_search_for_items"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateUser"
+            android:label="@string/title_activity_create_user"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
