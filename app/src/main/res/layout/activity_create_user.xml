@@ -21,6 +21,84 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="200dp"
+        android:paddingLeft="10dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="Email:"/>
+            <EditText
+                android:text="Email Address"
+                android:focusableInTouchMode="true"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:text="Email:"/>
+            <EditText
+                android:text="Confirm email"
+                android:focusableInTouchMode="true"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:text="Password:"/>
+            <EditText
+                
+                android:inputType="textPassword"
+                android:focusableInTouchMode="true"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:text="Password:"/>
+            <EditText
+
+                android:inputType="textPassword"
+                android:focusableInTouchMode="true"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            <TextView
+                android:text="User Name"/>
+            <EditText
+                android:text="username"
+                android:focusableInTouchMode="true"/>
+
+        </TableRow>
+        <TableRow>
+            <RadioGroup>
+            <RadioButton
+                android:text="Bar Manager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton" />
+            <RadioButton
+                android:text="Regular User"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton2" />
+            </RadioGroup>
+        </TableRow>
+    </TableLayout>
+
+
     <include layout="@layout/content_create_user" />
 
     <android.support.design.widget.FloatingActionButton
@@ -29,6 +107,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>
