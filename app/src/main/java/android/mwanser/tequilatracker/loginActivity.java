@@ -1,6 +1,7 @@
 package android.mwanser.tequilatracker;
 
 import android.content.Intent;
+import android.os.Environment;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
         final EditText textUserName = (EditText)findViewById(R.id.userEmail);
         final EditText textPassword = (EditText)findViewById(R.id.thePassword);
         final TextView textError = (TextView)findViewById(R.id.loginError);
+
+
         //Login button set
         assert buttonLogin != null; //What is this
         buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +89,40 @@ public class LoginActivity extends AppCompatActivity {
         //go to databaase and check username to password
         //if both match return id
         //MainActivity.ID=1;
-        return 1;
+        ArrayList<String> users = new ArrayList<>();
+        try {
+            String filename = "loginCredentials.txt";
+            File myFile = new File(Environment
+                    .getExternalStorageDirectory(), filename);
+            if (!myFile.exists())
+                myFile.createNewFile();
+            FileInputStream fos;
+
+            try {
+                String temp;
+                fos = new FileInputStream(myFile);
+                BufferedReader myReader = new BufferedReader(new InputStreamReader(fos));
+                while((temp=myReader.readLine())!=null){
+                    //Log.d("Loginactivity","temp "+temp);
+                    users.add(temp);
+                }
+                myReader.close();
+                fos.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        catch (IOException e2){
+            e2.printStackTrace();
+        }
+        int i=0;
+        for(String s: users){
+            String temp[]=s.split(" ");
+            if(u.equals(temp[0]))
+                if(p.equals(temp[2]))
+                    return i;
+            i++;
+        }
+        return -1;
     }
 }
