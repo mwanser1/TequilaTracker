@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     //Set intent to new intent
-                    Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     //intent.putExtra("");
                     startActivity(intent);
                 }
@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                 fos = new FileInputStream(myFile);
                 BufferedReader myReader = new BufferedReader(new InputStreamReader(fos));
                 while((temp=myReader.readLine())!=null){
-                    //Log.d("Loginactivity","temp "+temp);
+                    Log.d("Loginactivity","temp "+temp);
                     users.add(temp);
                 }
                 myReader.close();

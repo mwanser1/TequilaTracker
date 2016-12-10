@@ -1,6 +1,7 @@
 package android.mwanser.tequilatracker;
 
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,12 +13,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -48,6 +54,9 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         tequilas.add("Tequila 1"); tequilas.add("Tequila 2"); tequilas.add("Tequila 3");
         bars.add("bar 1");bars.add("bar 2");bars.add("bar 3");
+        ArrayAdapter tequilaBuddy = new ArrayAdapter<String>(this, android.R.layout.activity_list_item,tequilas);
+        ArrayAdapter barBuddy = new ArrayAdapter<String>(this, android.R.layout.activity_list_item,bars);
+        ListView listofthings = (ListView) findViewById(R.id.listOfThings);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -65,9 +74,9 @@ public class Main2Activity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AddReview.class);
-                //intent.putExtra("");
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), AddReview.class);
+//                //intent.putExtra("");
+//                startActivity(intent);
 
             }
         });
@@ -75,18 +84,18 @@ public class Main2Activity extends AppCompatActivity {
         addTequila.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SearchForItems.class);
-                //intent.putExtra("");
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), SearchForItems.class);
+//                //intent.putExtra("");
+//                startActivity(intent);
             }
         });
         FloatingActionButton find = (FloatingActionButton) findViewById(R.id.locationFind);
         find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LocationSearch.class);
-                //intent.putExtra("");
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), LocationSearch.class);
+//                //intent.putExtra("");
+//                startActivity(intent);
             }
         });
 
@@ -146,7 +155,15 @@ public class Main2Activity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            Log.d("Main2","I am here and this oncreate view called with "+ R.id.section_label+" we got "+getArguments().getInt(ARG_SECTION_NUMBER));
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            if(getArguments().getInt(ARG_SECTION_NUMBER)==1){
+
+
+
+            }
+            if(getArguments().getInt(ARG_SECTION_NUMBER)==2){}
+
             return rootView;
         }
     }

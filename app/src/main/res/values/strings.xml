@@ -8,4 +8,10 @@
     <string name="title_activity_add_review">Add a Review</string>
     <string name="title_activity_search_for_items">Search for Items</string>
     <string name="title_activity_create_user">Account Creation</string>
+    <string name="title_activity_add_tequila">addTequila</string>
+    <string name="title_activity_add_bar">addBar</string>
+    <string name="title_activity_find_tequila">findTequila</string>
+    <string name="title_activity_find_bar">FindBar</string>
+    <string name="title_activity_my_tequila">MyTequila</string>
+    <string name="title_activity_my_bar">MyBar</string>
 </resources>
